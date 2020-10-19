@@ -1,0 +1,40 @@
+<!--
+    Using AngularJS Create a SPA to take the information of a customer for booking a plan consisting of fields such as name, address, contact no., gender, Date of booking, date of journey, no of passenger, name of passenger etc. Display the e –Ticket.
+-->
+
+<!DOCTYPE html>
+<html>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+
+    <head>
+        <title>Slip 14</title>
+    </head>
+
+    <body>
+        <div style="text-align: center;" ng-app="">
+            <h3>Enter Details</h3>
+            Enter you name: <input type="text" ng-model="name"><br><br>
+            Enter your address: <input type="text" ng-model="add"><br><br>
+            Enter your contact no.: <input type="number"ng-model="num"><br><br>
+            Select your gender: <input type="radio" name="gender" value="male" ng-model="gender">Male 
+                                <input type="radio" name="gender" value="female" ng-model="gender">Female
+                                <input type="radio" name="gender" value="not-specified" ng-model="gender">Not - Specified<br><br>
+            Enter date of booking: <input type="date" ng-model="date"><br><br>
+            Enter date of journey: <input type="date" ng-model="journeydate"><br><br>
+            Enter the number of passengers: <input type="number" ng-model="passnum"><br><br>
+            Enter the name of passenger: <input type="text" ng-model="passname">
+            
+            <hr>
+
+            <h2>E-Ticket</h2>
+            <br><br>Name: {{name}}
+            <br><br>Address: {{add}}
+            <br><br>Contact number: {{num}}
+            <br><br>Gender: {{gender}}
+            <br><br>Booking Date: {{date}}
+            <br><br>Journey Date: {{journeydate}}
+            <br><br>Number of passengers: {{passnum}}
+            <br><br>Passenger names: {{passname}}
+        </div>   
+    </body>
+</html>

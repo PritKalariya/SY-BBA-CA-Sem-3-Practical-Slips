@@ -1,0 +1,33 @@
+<!--
+    Write an AngularJS script to print details of bank (bank name, MICR code, IFC code, address etc.) in tabular form using ng-repeat
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+
+        <title>Slip 4</title>
+    </head>
+    <body>
+        <div ng-app="" ng-init="details = [
+            {bname:'HDFC', MICR:'457625158', IFSC:'HDFC5641237', Address:'Indira Nagar'},
+            {bname:'ICICI', MICR:'4857125682', IFSC:'ICICI4215400', Address:'College Road'},
+            {bname:'PNB', MICR:'457120395', IFSC:'PNB1258556', Address:'Pathardi Phata'},
+            {bname:'MGB', MICR:'459001235', IFSC:'MGB0012459', Address:'Nashik Road'}]">
+
+            <h1 align="center"><b>Bank Details</b></h1>
+
+            <table border="2" height=450px, width=50% align="center">
+                <tr><th>Bank Name</th><th>MICR Code</th><th>IFSC Code</th><th>Address</th></tr>
+
+                <tr ng-repeat="i in details">
+                    <td>{{i.bname}}</td>
+                    <td>{{i.MICR}}</td>
+                    <td>{{i.IFSC}}</td>
+                    <td>{{i.Address}}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

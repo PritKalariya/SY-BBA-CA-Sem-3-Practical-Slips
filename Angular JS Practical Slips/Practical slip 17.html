@@ -1,0 +1,42 @@
+<!--
+    Write an AngularJS script to search student name according to the character typed and display details (use array and filter).
+-->
+<!DOCTYPE html>
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    
+    <head>
+        <title>Slip 17</title>
+    </head>
+    
+    <body>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <h3>Enter the name of the student: <input type="text" ng-model="alpha"></h3>
+
+            <table height="50%" width="50%" border="2">
+                <tr>
+                    <th>Name of the student</th>
+                    <th>City</th>
+                </tr>
+                <tr ng-repeat="x in names | filter:alpha">
+                    <td>{{x.name}}</td>
+                    <td>{{x.city}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            var app = angular.module("myApp",[]);
+            app.controller("myCtrl", function($scope) {
+                $scope.names = [
+                    {name: 'Chandler', city: 'Pune'},
+                    {name: 'Monica', city: 'Mumbai'},
+                    {name: 'Joe', city: 'Nashik'},
+                    {name: 'Pheobe', city: 'Rajkot'},
+                    {name: 'Rachel', city: 'Pune'},
+                    {name: 'Ross', city: 'Mumbai'}
+                ];
+            });
+        </script>
+    </body>
+</html>
