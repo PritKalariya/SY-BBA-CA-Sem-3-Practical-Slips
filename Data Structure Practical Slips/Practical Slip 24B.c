@@ -11,28 +11,23 @@ struct node {
 struct node *root = NULL;
 
 void main() {
-	int n;
-	
-	printf("Enter the number of nodes: ");
-	scanf("%d", &n);
-	
-	while(n > 0) {
-		insert();
-		n--;
-	}
+	insert(1);
+	insert(2);
+	insert(3);
+	insert(4);
+	insert(5);
 	
 	swap();
 	
 	display();
 }
 
-void insert() {
+void insert(int data) {
 	struct node *temp;
 	
 	temp = (struct node*)malloc(sizeof(struct node));
 	
-	printf("\nEnter data: ");
-	scanf("%d", &temp->data);
+	temp->data = data;
 	temp->link = NULL;
 	
 	if(root == NULL) {
@@ -47,38 +42,34 @@ void insert() {
 			p = p->link;
 		}
 		
-		p = temp;		
+		p->link = temp;		
 	}
 	
 	printf("\nData entered successfully.\n");
 }
 
 void swap() {
-	
+	struct node *l = root; // Last
+	int temp;
+
 	if(root == NULL || root->link == NULL) {
 		printf("\nERROR!!\n");
-		return;
 	}
-	
-	struct node *sl = root; // second last
-	struct node *l = root; // last
-	
-	while(l->link != NULL) {
-		sl = l;
-		l = l->link;
-	} 
-	
-	sl->link = root;
-    l->link = root->link;
-    root->link = NULL;
-    root = l;
-	
-	printf("\nSwap successfull.\n");
+	else {
+		while(l->link != NULL) {
+			l = l->link;
+		}
+		
+		temp = l->data;
+		l->data = root->data;
+		root->data = temp;
+		
+		printf("\nSwap successfull.\n");
+	}
 }
 
 void display() {
-	struct node *temp;
-	temp = root;
+	struct node *temp = root;
 	
 	if(temp == NULL) {
 		printf("\nLIST IS EMPTY!!\n");
