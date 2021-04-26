@@ -1,0 +1,49 @@
+<!--
+	Using AngularJS Create a SPA that show Syllabus content of all subjects of SYBBA (CA)(use ng-view)
+-->
+
+<html>
+	<script src= "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<head>
+		<title>Slip 13</title>
+	</head>
+	<body>
+		<div style="text-align: center;" ng-app = "myApp" ng-controller = "myctrl">
+			<h3>Enter Student Details</h3>
+			Enter Student Roll No: <input type = "number" ng-model = "rno"><br><br>
+			Enter Name of the Student: <input type = "text" ng-model = "sname"><br><br>
+			Enter Class of the Student: <input type = "text" ng-model = "sclass"><br><br>
+			Enter marks of Subject 1: <input type = "number" ng-model = "s1"><br><br>
+			Enter marks of Subject 2: <input type = "number" ng-model = "s2"><br><br>
+			Enter marks of Subject 3: <input type = "number" ng-model = "s3"><br><br>
+
+			<hr>
+
+			<h4>Student Marksheet</h4>
+			<br><br>Roll no: {{rno}}
+			<br><br>Name of the Student: {{sname}}
+			<br><br>Class: {{sclass}}
+			<br><br>Subject 1: {{s1}}
+			<br><br>Subject 2: {{s2}}
+			<br><br>Subject 3: {{s3}}
+			<br><br>Total Marks: {{tot()}}
+			<br><br>Percentage: {{per()}}
+
+			<script>
+				var app = angular.module("myApp", []);
+				app.controller("myctrl", function($scope)
+				{
+					$scope.tot = function()
+					{
+						return $scope.s1 + $scope.s2 + $scope.s3;
+					};
+
+					$scope.per = function()
+					{
+						return ($scope.s1 + $scope.s2 + $scope.s3)/300 * 100;
+					};
+				});
+			</script>
+		</div>
+	</body>
+</html>

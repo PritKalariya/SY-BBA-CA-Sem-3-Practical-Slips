@@ -1,0 +1,75 @@
+<!--
+Using AngularJS create a SPA that to accept the details of doctor(5-6) having field’s dno, dname, address, and phone number. Display those in table format. (use MVC.)
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+
+        <title>Slip 21</title>
+    </head>
+
+    <body>
+        <div align="center" ng-app="myApp", ng-controller="MyController">
+            <div>
+                <h2><u>Doctor's information form</u></h2>
+
+                <table border="0">
+                    <tr>
+                        <td>Enter Num</td>
+                        <td><input type="number" name="dno" ng-model="dno"></td>
+                    </tr>
+                    <tr>
+                        <td>Enter Name</td>
+                        <td><input type="text" name="dname" ng-model="dname"></td>
+                    </tr>
+                    <tr>
+                        <td>Enter Address</td>
+                        <td><input type="text" name="dadd" ng-model="dadd"></td>
+                    </tr>
+                    <tr>
+                        <td>Enter PhoneNo</td>
+                        <td><input type="number" name="dphn" ng-model="dphno"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="Add details" ng-click="isShow('show')"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <br><hr><br>
+
+            <div ng-show="showval">
+                <h3><u>Doctor Details</u></h3>
+
+                <table border="1">
+                    <thead>
+                        <td>Doc Number</td>
+                        <td>Doc Name</td>
+                        <td>Doc Address</td>
+                        <td>Doc PhoneNo</td>
+                    </thead>
+                    <tr>
+                        <td>{{dno}}</td>
+                        <td>{{dname}}</td>
+                        <td>{{dadd}}</td>
+                        <td>{{dphno}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <script>
+            var myApp = angular.module("myApp", [])
+            myApp.controller("MyController", function($scope){
+                $scope.showval = false;
+                $scope.isShow = function(param) {
+                    if(param == "show") {
+                        $scope.showval = true;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
