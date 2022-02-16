@@ -1,0 +1,33 @@
+<!--
+    Write an AngularJS script for addition of two numbers using ng-init, ng-model & ng-bind. And also Demonstrate ng-show, ng-disabled, ng-click directives on button component.
+-->
+
+<!DOCTYPE html>
+<html>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    
+    <head>
+        <title>Slip 5</title>
+    </head>
+    
+    <body>
+        <div ng-app="" ng-init="no1=0; no2=0; ans=0; clicked=true">
+            <h2>Enter first number: <input type="number" ng-model="no1"></h2>
+
+            <h2>Enter second number: <input type="number" ng-model="no2"></h2>
+
+            <br><br>
+
+            <button ng-click="ans=no1+no2">Add!</button>
+
+            <h2>Addition is <span ng-bind="ans"></span></h2>
+
+
+            <br><br>
+
+            <div ng-show="clicked">
+                Final Addition (Disabled): <input ng-disabled="clicked" type="text" value={{ans}}>
+            </div>
+        </div>
+    </body>
+</html>
